@@ -115,11 +115,11 @@
   .type-cursor{display:inline-block;width:2px;height:14px;background:var(--accent-cyan);margin-inline-start:2px;animation:blink 1s step-end infinite;}
   @keyframes blink{50%{opacity:0;}}
 
-  .contact-row{display:flex;gap:10px;flex-wrap:wrap;max-width:340px;justify-content:flex-end;}
+  .contact-row{display:flex;gap:9px;flex-wrap:wrap;max-width:460px;justify-content:flex-end;}
   .contact-chip{
-    display:flex;align-items:center;gap:8px;
+    display:flex;align-items:center;gap:7px;
     background:rgba(255,255,255,0.03);border:1px solid var(--border-soft);
-    padding:9px 15px;border-radius:11px;font-size:12.5px;color:var(--text-primary);
+    padding:8px 13px;border-radius:11px;font-size:12px;color:var(--text-primary);
     transition:.25s;direction:ltr;
   }
   .contact-chip svg{color:var(--accent-cyan);flex-shrink:0;}
@@ -211,6 +211,14 @@
   .footer{text-align:center;color:var(--text-dim);font-size:12px;margin-top:34px;font-family:'JetBrains Mono',monospace;letter-spacing:0.6px;}
 
   @keyframes riseIn{ from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes botFloat{
+    0%{ transform:translate(0,0) rotate(0deg); }
+    25%{ transform:translate(4px,-9px) rotate(2.5deg); }
+    50%{ transform:translate(-3px,-15px) rotate(-1.5deg); }
+    75%{ transform:translate(3px,-7px) rotate(2deg); }
+    100%{ transform:translate(0,0) rotate(0deg); }
+  }
+  @keyframes shadowPulse{ 0%,100%{ transform:scale(1); opacity:0.9; } 50%{ transform:scale(0.65); opacity:0.35; } }
 
   /* ---------- mobile ---------- */
   @media (max-width:640px){
@@ -408,6 +416,15 @@
         </div>
       </section>
 
+      <div class="trail">
+        <svg width="46" height="34" viewBox="0 0 46 34">
+          <path class="trail-path" d="M23 0 C 36 10, 10 10, 23 22 C 30 28, 14 28, 23 34"/>
+          <circle class="trail-dot" r="3.4">
+            <animateMotion dur="3.5s" repeatCount="indefinite" path="M23 0 C 36 10, 10 10, 23 22 C 30 28, 14 28, 23 34"/>
+          </circle>
+        </svg>
+      </div>
+
       <section class="card">
         <div class="card-head"><span class="card-num">05</span><h2>دستاوردها و رهبری تیمی</h2></div>
         <div class="entry">
@@ -459,10 +476,49 @@
         <div class="bar-item"><div class="bar-top"><span class="name">ارتباطات</span><span class="lvl">عالی - ۵ از ۵</span></div><div class="bar-track"><div class="bar-fill" style="--fill:100%"></div></div></div>
       </section>
 
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px;position:relative;overflow:visible;margin-top:auto;margin-bottom:auto;">
+        <div style="position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle, rgba(49,220,239,0.24), rgba(114,116,247,0.13) 45%, transparent 72%);filter:blur(6px);pointer-events:none;"></div>
+        <svg width="150" height="178" viewBox="0 0 120 148" style="position:relative;z-index:1;animation:botFloat 5s ease-in-out infinite;transform-origin:50% 100%;">
+          <defs>
+            <linearGradient id="botGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--accent-indigo)"/>
+              <stop offset="100%" stop-color="var(--accent-cyan)"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#botGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 10px rgba(49,220,239,0.55));">
+            <line x1="45" y1="16" x2="38" y2="3"/>
+            <circle cx="38" cy="3" r="2.6" fill="url(#botGrad)"/>
+            <line x1="75" y1="16" x2="82" y2="3"/>
+            <circle cx="82" cy="3" r="2.6" fill="url(#botGrad)"/>
+            <path d="M32,44 A28,28 0 1,1 88,44"/>
+            <circle cx="48" cy="33" r="2.8" fill="url(#botGrad)" stroke="none"/>
+            <circle cx="72" cy="33" r="2.8" fill="url(#botGrad)" stroke="none"/>
+            <line x1="8" y1="52" x2="112" y2="52"/>
+            <rect x="8" y="52" width="14" height="40" rx="7"/>
+            <rect x="98" y="52" width="14" height="40" rx="7"/>
+            <rect x="26" y="44" width="68" height="56" rx="16"/>
+            <line x1="26" y1="66" x2="94" y2="66"/>
+            <rect x="38" y="100" width="14" height="30" rx="7"/>
+            <rect x="68" y="100" width="14" height="30" rx="7"/>
+          </g>
+        </svg>
+        <div id="botShadow" style="width:46px;height:9px;border-radius:50%;background:radial-gradient(ellipse, rgba(49,220,239,0.4), transparent 75%);animation:shadowPulse 5s ease-in-out infinite;position:relative;z-index:1;"></div>
+        <span class="mono" style="font-size:11px;color:var(--text-dim);letter-spacing:1px;position:relative;z-index:1;">&lt;/&gt; ANDROID &amp; GAME DEV</span>
+      </div>
+
     </div>
   </div>
 
-  <section class="card" style="margin-top:22px;">
+  <div class="trail" style="justify-content:center;margin-inline-start:0;">
+    <svg width="46" height="34" viewBox="0 0 46 34">
+      <path class="trail-path" d="M23 0 C 10 10, 36 10, 23 22 C 14 28, 30 28, 23 34"/>
+      <circle class="trail-dot" r="3.4">
+        <animateMotion dur="3.5s" repeatCount="indefinite" path="M23 0 C 10 10, 36 10, 23 22 C 14 28, 30 28, 23 34"/>
+      </circle>
+    </svg>
+  </div>
+
+  <section class="card" style="margin-top:0;">
     <div class="card-head"><span class="card-num">06</span><h2>ویژگی‌های شخصی</h2></div>
     <p class="lead">فردی تحلیل‌گر و مسئله‌محور، با پیشینه‌ای ترکیبی از آموزش ریاضیات، طراحی سوالات هوش محاسباتی و توسعه نرم‌افزار. این تجربه چندلایه باعث شده هم در حل مسائل فنی پیچیده دقیق عمل کنم و هم در انتقال ایده‌ها و طراحی تجربه‌های آموزشی-تعاملی برای کاربر مهارت بالایی داشته باشم. سریع در یادگیری، منظم در اجرا و علاقه‌مند به ساخت محصولاتی که هم از نظر فنی تمیز باشند و هم تجربه کاربری جذابی ارائه دهند. مناسب برای تیم‌های استارتاپی، پروژه‌های آموزشی-بازی‌محور و همکاری‌های محصول‌محور.</p>
   </section>
